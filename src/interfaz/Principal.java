@@ -102,7 +102,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btngit.setText("gitboton");
+        btngit.setText("gitboton1212");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

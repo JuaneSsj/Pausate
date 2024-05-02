@@ -29,10 +29,11 @@ public class ventanaAdmin extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         botonCerrarSesionVentana1 = new javax.swing.JButton();
-        btnAdministrar = new javax.swing.JButton();
+        btncrearusuario = new javax.swing.JButton();
         btnHistorial = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         lblgestionemp = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
@@ -51,9 +52,14 @@ public class ventanaAdmin extends javax.swing.JFrame {
             }
         });
 
-        btnAdministrar.setBackground(new java.awt.Color(0, 62, 58));
-        btnAdministrar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnAdministrar.setText("ADMINISTRAR USUARIOS");
+        btncrearusuario.setBackground(new java.awt.Color(0, 62, 58));
+        btncrearusuario.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btncrearusuario.setText("CREAR USUARIO");
+        btncrearusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncrearusuarioActionPerformed(evt);
+            }
+        });
 
         btnHistorial.setBackground(new java.awt.Color(0, 62, 58));
         btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -66,16 +72,14 @@ public class ventanaAdmin extends javax.swing.JFrame {
         lblgestionemp.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblgestionemp.setText("GESTIÓN DE EMPLEADOS");
 
+        jButton1.setBackground(new java.awt.Color(0, 62, 58));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton1.setText("MODIFICAR USUARIO");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(btnAdministrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(btnHistorial)
-                .addGap(52, 52, 52))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -85,9 +89,16 @@ public class ventanaAdmin extends javax.swing.JFrame {
                         .addGap(195, 195, 195)
                         .addComponent(lblgestionemp))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addComponent(botonCerrarSesionVentana1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(250, 250, 250)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btncrearusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(226, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botonCerrarSesionVentana1)
+                .addGap(315, 315, 315))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,13 +107,15 @@ public class ventanaAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblgestionemp)
-                .addGap(93, 93, 93)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdministrar)
-                    .addComponent(btnHistorial))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
+                .addComponent(btncrearusuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(27, 27, 27)
+                .addComponent(btnHistorial)
+                .addGap(47, 47, 47)
                 .addComponent(botonCerrarSesionVentana1)
-                .addGap(62, 62, 62))
+                .addGap(17, 17, 17))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 520));
@@ -142,6 +155,13 @@ public class ventanaAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonCerrarSesionVentana1ActionPerformed
 
+    private void btncrearusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearusuarioActionPerformed
+        frmcrearuser crear = new frmcrearuser();
+        crear.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btncrearusuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,8 +199,9 @@ public class ventanaAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrarSesionVentana1;
-    private javax.swing.JButton btnAdministrar;
     private javax.swing.JButton btnHistorial;
+    private javax.swing.JButton btncrearusuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

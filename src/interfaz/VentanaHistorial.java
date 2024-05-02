@@ -5,7 +5,7 @@
 package interfaz;
 
 import java.util.ArrayList;
-
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Alejo
@@ -15,8 +15,11 @@ public class VentanaHistorial extends javax.swing.JFrame {
     /**
      * Creates new form VentanaHistorial
      */
+    
     public VentanaHistorial() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
     }
 
     /**

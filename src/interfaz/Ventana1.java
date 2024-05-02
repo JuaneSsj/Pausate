@@ -15,6 +15,7 @@ public class Ventana1 extends javax.swing.JFrame {
      */
     public Ventana1() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -204,6 +205,7 @@ public class Ventana1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Ventana1().setVisible(true);
+            
         });
     }
 

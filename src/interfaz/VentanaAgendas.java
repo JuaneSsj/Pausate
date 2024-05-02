@@ -17,7 +17,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
      */
     public VentanaAgendas() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
     }
 
     /**

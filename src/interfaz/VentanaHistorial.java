@@ -184,7 +184,6 @@ public class VentanaHistorial extends javax.swing.JFrame {
         
         // Limpiar la tabla antes de agregar nuevos datos
         model.setRowCount(0);
-
         for (String agendaPausa : agendas) {
             String[] datos = agendaPausa.split("\n");
             model.addRow(datos);

@@ -1,0 +1,7 @@
+
+package interfaz;
+
+
+class tablaHistorial {
+    
+}

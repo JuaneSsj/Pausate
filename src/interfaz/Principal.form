@@ -177,6 +177,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonIngresarActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BotonIngresarKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="mostrarContra">

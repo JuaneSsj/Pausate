@@ -6,9 +6,7 @@ import java.util.ArrayList;
 
 public class VentanaAgendas extends javax.swing.JFrame {
 
-    private listas agenda;
-    
-    
+    private listas agenda;    
     
     public VentanaAgendas(listas agenda) {
         initComponents();

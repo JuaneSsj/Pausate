@@ -16,6 +16,7 @@ public class Principal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         agregarKeyListener();
         this.agenda = new listas();
+        
     }
     
     private void agregarKeyListener() {

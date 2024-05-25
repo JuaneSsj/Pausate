@@ -1,7 +1,11 @@
 
 package interfaz;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class VentanaAgendas extends javax.swing.JFrame {
@@ -33,6 +37,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
 
@@ -62,6 +67,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(63, 129, 108));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboBoxModalidad.setBackground(new java.awt.Color(0, 62, 58));
         comboBoxModalidad.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -71,9 +77,11 @@ public class VentanaAgendas extends javax.swing.JFrame {
                 comboBoxModalidadActionPerformed(evt);
             }
         });
+        jPanel1.add(comboBoxModalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("MODALIDAD");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, -1, -1));
 
         btnAgendar.setBackground(new java.awt.Color(0, 204, 153));
         btnAgendar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -83,17 +91,21 @@ public class VentanaAgendas extends javax.swing.JFrame {
                 btnAgendarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 197, 36));
 
         comboBoxTipoPausa.setBackground(new java.awt.Color(0, 62, 58));
         comboBoxTipoPausa.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         comboBoxTipoPausa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estiramientos", "Masaje", "Juego interactivo" }));
+        jPanel1.add(comboBoxTipoPausa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("SELECCIONA LA HORA ");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
 
         comboBoxHora.setBackground(new java.awt.Color(0, 62, 58));
         comboBoxHora.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12 m", "1 pm", "2 pm", "3 pm" }));
+        jPanel1.add(comboBoxHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
 
         botonAtrasAgenda.setBackground(new java.awt.Color(186, 217, 211));
         botonAtrasAgenda.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -103,6 +115,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
                 botonAtrasAgendaActionPerformed(evt);
             }
         });
+        jPanel1.add(botonAtrasAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 444, -1, -1));
 
         botonCerrarSesionAgendas.setBackground(new java.awt.Color(186, 217, 211));
         botonCerrarSesionAgendas.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -112,91 +125,24 @@ public class VentanaAgendas extends javax.swing.JFrame {
                 botonCerrarSesionAgendasActionPerformed(evt);
             }
         });
+        jPanel1.add(botonCerrarSesionAgendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 444, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("TIPO DE PAUSA");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("AGENDA TU PAUSA");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2024-04-06 at 16.34.56_ced7159b.jpg"))); // NOI18N
         jLabel5.setMaximumSize(new java.awt.Dimension(80, 16));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 164, 124));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(336, 336, 336)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(248, 248, 248)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(311, 311, 311)
-                        .addComponent(btnAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(botonAtrasAgenda)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonCerrarSesionAgendas))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(comboBoxTipoPausa, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(comboBoxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comboBoxHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(72, 72, 72))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                                .addComponent(jLabel3)))))
-                .addGap(25, 25, 25))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboBoxTipoPausa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(75, 198, Short.MAX_VALUE)
-                        .addComponent(btnAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botonAtrasAgenda)
-                            .addComponent(botonCerrarSesionAgendas))
-                        .addGap(34, 34, 34))))
-        );
+        jLabel6.setBackground(new java.awt.Color(63, 129, 108));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Historial.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 520));
 
@@ -249,7 +195,45 @@ public class VentanaAgendas extends javax.swing.JFrame {
         agendaPausa += comboBoxHora.getSelectedItem();
 
         agenda.llenar(agendaPausa); // Agregar la pausa a la instancia existente de listas
+        
+        if(comboBoxModalidad.getSelectedItem().equals("Virtual") && comboBoxTipoPausa.getSelectedItem().equals("Estiramientos"))
+        {
+            String enlace = "https://www.youtube.com/watch?v=Jg6MHTqziPQ";
+            JOptionPane.showMessageDialog(null, "Pausa activa agendada\nAcá el link para tu pausa\n" + enlace);
 
+            // Copiar el enlace al portapapeles
+            StringSelection selection = new StringSelection(enlace);
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            clipboard.setContents(selection, selection);
+
+            JOptionPane.showMessageDialog(null, "Enlace copiado al portapapeles");
+        }
+        else if(comboBoxModalidad.getSelectedItem().equals("Virtual") && comboBoxTipoPausa.getSelectedItem().equals("Masaje"))
+        {
+            String enlace = "https://www.youtube.com/watch?v=WRPi81jgKN8";
+            JOptionPane.showMessageDialog(null, "Pausa activa agendada\nAcá el link para tu pausa\n" + enlace);
+
+            // Copiar el enlace al portapapeles
+            StringSelection selection = new StringSelection(enlace);
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            clipboard.setContents(selection, selection);
+
+            JOptionPane.showMessageDialog(null, "Enlace copiado al portapapeles");
+        }
+        else if (comboBoxModalidad.getSelectedItem().equals("Virtual") && comboBoxTipoPausa.getSelectedItem().equals("Juego interactivo"))
+        {
+            String enlace = "https://www.youtube.com/watch?v=DdED0CIRRS0";
+            JOptionPane.showMessageDialog(null, "Pausa activa agendada\nAcá el link para tu pausa\n" + enlace);
+
+            // Copiar el enlace al portapapeles
+            StringSelection selection = new StringSelection(enlace);
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            clipboard.setContents(selection, selection);
+
+            JOptionPane.showMessageDialog(null, "Enlace copiado al portapapeles");
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Pausa activa agendada, nos vemos en el patio a las "+comboBoxHora.getSelectedItem());
     }//GEN-LAST:event_btnAgendarActionPerformed
 
     private void comboBoxModalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxModalidadActionPerformed
@@ -305,6 +289,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

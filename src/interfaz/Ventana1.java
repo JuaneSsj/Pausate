@@ -89,7 +89,8 @@ public class Ventana1 extends javax.swing.JFrame {
 
     private void botonAgendaPausasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgendaPausasActionPerformed
         VentanaAgendas agendas = new VentanaAgendas(agenda);
-        agendas.setVisible(true);
+        Calendario ag = new Calendario();
+        ag.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonAgendaPausasActionPerformed
 

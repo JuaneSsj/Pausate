@@ -115,7 +115,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
                 botonAtrasAgendaActionPerformed(evt);
             }
         });
-        jPanel1.add(botonAtrasAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 444, -1, -1));
+        jPanel1.add(botonAtrasAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
 
         botonCerrarSesionAgendas.setBackground(new java.awt.Color(186, 217, 211));
         botonCerrarSesionAgendas.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N

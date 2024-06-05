@@ -300,16 +300,48 @@ public class frmcrearuser extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+         int fila;
+        fila=tblTabla.getSelectedRow();
+        if (fila>=0)
+        {
+            modelo.removeRow(fila);
+            btnGuardarActionPerformed(evt);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Debe Seleccionar una fila");;
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        int fila;
+        fila=tblTabla.getSelectedRow();
+        if (fila>=0)
+        {
+            if(txtdocumento.getText().equals("")||txtContraseña.getText().equals("")||txtnombre.getText().equals("")||txtcargo.getText().equals("")||txtusuario.getText().equals(""))
+                JOptionPane.showMessageDialog(null,"por favor llene todos los campos y pulse de nuevo editar");
+            else
+            {
+                modelo.removeRow(fila);
+                String datos[]=new String [5];
+                datos[0]=txtdocumento.getText();
+                txtdocumento.setText("");//Vacio las txtField
+                datos[1]=txtnombre.getText();
+                txtnombre.setText("");//Vacio las txtField
+                datos[2]=txtcargo.getText();
+                txtcargo.setText("");//Vacio las txtField
+                datos[3]=txtusuario.getText();
+                txtusuario.setText("");//Vacio las txtField
+                datos[4]=txtContraseña.getText();
+                txtContraseña.setText("");     
+
+                modelo.addRow(datos);
+                btnGuardarActionPerformed(evt);
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Debe Seleccionar una fila");;
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

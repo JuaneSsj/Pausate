@@ -9,6 +9,7 @@ public class frmcrearuser extends javax.swing.JFrame {
 
     DefaultTableModel modelo;
     File archivo=null;//Para trabajar con archivos declaro de tipo File
+    
     public frmcrearuser() {
         initComponents();
         modelo = new DefaultTableModel();

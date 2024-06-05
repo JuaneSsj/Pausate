@@ -105,9 +105,7 @@ public class Ventana1 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonCerrarSesionVentana1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

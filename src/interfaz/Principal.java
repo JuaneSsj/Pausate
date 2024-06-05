@@ -195,21 +195,22 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarActionPerformed
-        String usuario="poli";
-        String contraseña="poli123";
+        boolean ingreso=false;
         String admin="admin";
         String contraseñaAdmin="poli123";
+        Ingresar p = new Ingresar();
+        ingreso = p.ingresar(txtUsuario.getText(),txtContraseña.getText());       
         
-        if(txtUsuario.getText().equals(usuario)&&(txtContraseña.getText().equals(contraseña)))
+        if(ingreso)
         {
             Ventana1 ingresar = new Ventana1(agenda);        
             ingresar.setVisible(true);
             this.dispose();
         }
-        else if (txtUsuario.getText().equals(admin)&&(txtContraseña.getText().equals(contraseñaAdmin)))
+        else if(txtUsuario.getText().equals(admin)&&(txtContraseña.getText().equals(contraseñaAdmin)))
         {
-            ventanaAdmin ingresar = new ventanaAdmin();        
-            ingresar.setVisible(true);
+            ventanaAdmin va = new ventanaAdmin();
+            va.setVisible(true);
             this.dispose();
         }
         else

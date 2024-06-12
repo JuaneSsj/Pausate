@@ -155,7 +155,6 @@ public class HistorialAdm extends javax.swing.JFrame {
         Principal principal = new Principal();
         principal.setVisible(true);
         this.dispose();
-        
     }//GEN-LAST:event_botonCerrarSesionHistorialAdmActionPerformed
 
     /**

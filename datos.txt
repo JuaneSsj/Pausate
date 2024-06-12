@@ -2,3 +2,4 @@
 130	Messi	fuchilover	Elmessias	messirve
 100	alejandro	vago	vago123	123456
 999	leidys	Profesora	laley	123456
+115	Cristian	Técnico	csepulveda	Casa935

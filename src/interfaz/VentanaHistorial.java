@@ -1,7 +1,10 @@
 
 package interfaz;
 
+import java.awt.Color;
+import java.io.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class VentanaHistorial extends javax.swing.JFrame {
@@ -10,7 +13,7 @@ public class VentanaHistorial extends javax.swing.JFrame {
 //    private javax.swing.JScrollPane jScrollPane2;
     private DefaultTableModel dtm;
     private listas agenda;
-    
+    File archivo =null;
    
     
     public VentanaHistorial(listas agenda) {
@@ -18,7 +21,7 @@ public class VentanaHistorial extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        String titulos[] = {"Modalidad", "Tipo de pausa", "Hora"};
+        String titulos[] = {"Nombre", "Modalidad", "Tipo de pausa", "Hora"};
         dtm = new DefaultTableModel();
         dtm.setColumnIdentifiers(titulos);
         tblTabla.setModel(dtm);        
@@ -38,12 +41,12 @@ public class VentanaHistorial extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTabla = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(63, 128, 108));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         botonBuscarHistorial.setBackground(new java.awt.Color(94, 140, 137));
         botonBuscarHistorial.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -54,9 +57,11 @@ public class VentanaHistorial extends javax.swing.JFrame {
                 botonBuscarHistorialActionPerformed(evt);
             }
         });
+        jPanel1.add(botonBuscarHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("HISTORIAL DE PAUSAS");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 6, -1, -1));
 
         botonCerrarSesionHistorial.setBackground(new java.awt.Color(186, 217, 211));
         botonCerrarSesionHistorial.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -66,6 +71,7 @@ public class VentanaHistorial extends javax.swing.JFrame {
                 botonCerrarSesionHistorialActionPerformed(evt);
             }
         });
+        jPanel1.add(botonCerrarSesionHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, -1, -1));
 
         botonAtrasHistorial.setBackground(new java.awt.Color(186, 217, 211));
         botonAtrasHistorial.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -75,10 +81,12 @@ public class VentanaHistorial extends javax.swing.JFrame {
                 botonAtrasHistorialActionPerformed(evt);
             }
         });
+        jPanel1.add(botonAtrasHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2024-04-06 at 16.34.56_ced7159b.jpg"))); // NOI18N
         jLabel5.setMaximumSize(new java.awt.Dimension(80, 16));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 14, 164, 124));
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -101,80 +109,25 @@ public class VentanaHistorial extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonAtrasHistorial)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(406, 406, 406)
-                        .addComponent(botonCerrarSesionHistorial))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jLabel1)))
-                .addContainerGap(149, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(botonBuscarHistorial)
-                .addGap(91, 91, 91)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(142, 142, 142)
-                        .addComponent(botonBuscarHistorial)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(83, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonAtrasHistorial)
-                    .addComponent(botonCerrarSesionHistorial))
-                .addGap(34, 34, 34))
-        );
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, 210));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 520));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 910, 260));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonCerrarSesionHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionHistorialActionPerformed
-        Principal principal = new Principal();
-        principal.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_botonCerrarSesionHistorialActionPerformed
 
     private void botonAtrasHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasHistorialActionPerformed
         Ventana1 atras = new Ventana1(agenda);
@@ -182,17 +135,41 @@ public class VentanaHistorial extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonAtrasHistorialActionPerformed
 
+    private void botonCerrarSesionHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionHistorialActionPerformed
+        Principal principal = new Principal();
+        principal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarSesionHistorialActionPerformed
+
     private void botonBuscarHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarHistorialActionPerformed
-        ArrayList<String> agendas = agenda.obtenerLista();
-        DefaultTableModel model = (DefaultTableModel) tblTabla.getModel();
-        
-        // Limpiar la tabla antes de agregar nuevos datos
-        model.setRowCount(0);
-        for (String agendaPausa : agendas) {
-            String[] datos = agendaPausa.split("\n");
-            model.addRow(datos);
+        //        ArrayList<String> agendas = agenda.obtenerLista();
+        //        DefaultTableModel model = (DefaultTableModel) tblTabla.getModel();
+        //
+        //        // Limpiar la tabla antes de agregar nuevos datos
+        //        model.setRowCount(0);
+        //        for (String agendaPausa : agendas) {
+            //            String[] datos = agendaPausa.split("\n");
+            //            model.addRow(datos);
+            //        }
+         dtm.setRowCount(0);
+    
+    try {
+        archivo = new File("historial.txt");
+        if (archivo.exists()) {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split("\t"); // Separar los datos por el delimitador tabulador
+                dtm.addRow(datos); // Agregar cada conjunto de datos como una fila en la tabla
+            }
+            br.close();
+        } else {
+            JOptionPane.showMessageDialog(null, "El archivo no existe");
         }
-        
+    } catch (IOException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "ERROR");
+    }
     }//GEN-LAST:event_botonBuscarHistorialActionPerformed
 
     
@@ -237,7 +214,6 @@ public class VentanaHistorial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblTabla;

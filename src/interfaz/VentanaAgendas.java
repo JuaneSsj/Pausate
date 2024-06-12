@@ -1,9 +1,14 @@
 
 package interfaz;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -11,7 +16,7 @@ import javax.swing.JOptionPane;
 public class VentanaAgendas extends javax.swing.JFrame {
 
     private listas agenda;    
-    
+    File archivo=null;
     public VentanaAgendas(listas agenda) {
         initComponents();
         this.agenda = agenda; // Recibe la instancia de listas
@@ -38,6 +43,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        txt_nomb = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
 
@@ -100,7 +106,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("SELECCIONA LA HORA ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
         comboBoxHora.setBackground(new java.awt.Color(0, 62, 58));
         comboBoxHora.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -143,6 +149,24 @@ public class VentanaAgendas extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(63, 129, 108));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Historial.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, -1));
+
+        txt_nomb.setBackground(new java.awt.Color(0, 62, 58));
+        txt_nomb.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txt_nomb.setText("Digite su nombre");
+        txt_nomb.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nombFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_nombFocusLost(evt);
+            }
+        });
+        txt_nomb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_nomb, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 220, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 520));
 
@@ -190,6 +214,7 @@ public class VentanaAgendas extends javax.swing.JFrame {
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
        String agendaPausa = "";
 
+        agendaPausa += txt_nomb.getText()+"\n";
         agendaPausa += comboBoxModalidad.getSelectedItem() + "\n";
         agendaPausa += comboBoxTipoPausa.getSelectedItem() + "\n";
         agendaPausa += comboBoxHora.getSelectedItem();
@@ -234,11 +259,49 @@ public class VentanaAgendas extends javax.swing.JFrame {
         }
         else
             JOptionPane.showMessageDialog(null, "Pausa activa agendada, nos vemos en el patio a las "+comboBoxHora.getSelectedItem());
+        
+            // Guardar la información de la pausa en un archivo plano
+    archivo = new File("historial.txt");
+    try (FileWriter fw = new FileWriter(archivo, true); BufferedWriter bw = new BufferedWriter(fw)) {
+        bw.write(txt_nomb.getText() + "\t");
+        bw.write(comboBoxModalidad.getSelectedItem() + "\t");
+        bw.write(comboBoxTipoPausa.getSelectedItem() + "\t");
+        bw.write("" +comboBoxHora.getSelectedItem());
+       
+        JOptionPane.showMessageDialog(null, "Datos guardados correctamente en el archivo");
+    } catch (IOException e) {
+        System.out.println("Error al guardar: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al guardar los datos");
+    }
     }//GEN-LAST:event_btnAgendarActionPerformed
 
     private void comboBoxModalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxModalidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxModalidadActionPerformed
+
+    private void txt_nombActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombActionPerformed
+
+    private void txt_nombFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombFocusGained
+        // TODO add your handling code here:
+         if(txt_nomb.getText().equals("Digite su nombre"))
+        {
+            txt_nomb.setText("");
+            txt_nomb.setForeground(Color.BLACK);
+           
+        }
+    }//GEN-LAST:event_txt_nombFocusGained
+
+    private void txt_nombFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombFocusLost
+        
+         if(txt_nomb.getText().equals(""))
+        {
+            txt_nomb.setText("Digite su nombre");
+            txt_nomb.setForeground(new java.awt.Color(0,0,0));
+            
+        }
+    }//GEN-LAST:event_txt_nombFocusLost
 
     /**
      * @param args the command line arguments
@@ -295,5 +358,6 @@ public class VentanaAgendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JTextField txt_nomb;
     // End of variables declaration//GEN-END:variables
 }

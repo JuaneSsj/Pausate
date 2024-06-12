@@ -66,6 +66,11 @@ public class ventanaAdmin extends javax.swing.JFrame {
         btnHistorial.setBackground(new java.awt.Color(0, 62, 58));
         btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnHistorial.setText("HISTORIAL TRABAJADORES");
+        btnHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -100,6 +105,12 @@ public class ventanaAdmin extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btncrearusuarioActionPerformed
+
+    private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
+       HistorialAdm principal = new HistorialAdm();
+        principal.setVisible(true);
+        this.dispose(); 
+    }//GEN-LAST:event_btnHistorialActionPerformed
 
     /**
      * @param args the command line arguments
